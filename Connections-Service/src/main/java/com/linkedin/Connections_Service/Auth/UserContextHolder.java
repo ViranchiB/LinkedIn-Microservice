@@ -3,6 +3,7 @@ package com.linkedin.Connections_Service.Auth;
 // This is the custom context holder.
 public class UserContextHolder {
 
+
     /*
     Thread Local -> It hold the information about the user until the thread is available.
     It doesn't share the information between the threads.
