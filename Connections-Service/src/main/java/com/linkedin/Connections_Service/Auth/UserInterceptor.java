@@ -1,4 +1,4 @@
-package com.linkedin.Post_Service.Config.Auth;
+package com.linkedin.Connections_Service.Auth;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

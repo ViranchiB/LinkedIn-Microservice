@@ -50,7 +50,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                         .request(r -> r.header("X-User-Id", userId))
                         .build();
 
-                return chain.filter(exchange);
+                return chain.filter(modifiedExchange);
             }catch (JwtException jwtException){
                 log.error("JWT Exception: {}", jwtException.getLocalizedMessage());
                 log.error(jwtException.getMessage());

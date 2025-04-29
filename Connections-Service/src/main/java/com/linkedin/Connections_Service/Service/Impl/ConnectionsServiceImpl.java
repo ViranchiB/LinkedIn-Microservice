@@ -1,5 +1,6 @@
 package com.linkedin.Connections_Service.Service.Impl;
 
+import com.linkedin.Connections_Service.Auth.UserContextHolder;
 import com.linkedin.Connections_Service.Entity.Person;
 import com.linkedin.Connections_Service.Repository.PersonRepository;
 import com.linkedin.Connections_Service.Service.ConnectionsService;
@@ -20,8 +21,11 @@ public class ConnectionsServiceImpl implements ConnectionsService {
         this.personRepository = personRepository;
     }
 
+    // This is how we can get the UserId from the UserContextHolder and we don't need to pass in URL
+    // To apply this we need to just use the Auth package
     @Override
-    public List<Person> getAllFirstDegreeConnections(Long userId) {
+    public List<Person> getAllFirstDegreeConnections() {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.debug("Getting 1st degree connections for user with Id: {}", userId);
         return this.personRepository.getFirstDegreeConnections(userId);
     }
