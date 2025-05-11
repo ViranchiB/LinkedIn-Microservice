@@ -31,13 +31,15 @@ public class ConnectionsServiceImpl implements ConnectionsService {
     }
 
     @Override
-    public List<Person> getAllSecondDegreeConnections(Long userId) {
+    public List<Person> getAllSecondDegreeConnections() {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.debug("Getting 2st degree connections for user with Id: {}", userId);
         return this.personRepository.getSecondDegreeConnections(userId);
     }
 
     @Override
-    public List<Person> getAllThirdDegreeConnections(Long userId) {
+    public List<Person> getAllThirdDegreeConnections() {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.debug("Getting 3st degree connections for user with Id: {}", userId);
         return this.personRepository.getThirdDegreeConnections(userId);
     }

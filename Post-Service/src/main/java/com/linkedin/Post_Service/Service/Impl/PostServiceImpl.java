@@ -33,7 +33,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto createPost(Long userId, PostCreateRequestDto postCreateRequestDto) {
+    public PostDto createPost(PostCreateRequestDto postCreateRequestDto) {
+        Long userId = UserContextHolder.getCurrentUserId();
         Post post = modelMapper.map(postCreateRequestDto, Post.class);
         post.setUserId(userId);
         Post savePost = this.postRepository.save(post);
@@ -55,7 +56,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getAllPostsOfUser(Long userId) {
+    public List<PostDto> getAllPostsOfUser() {
+        Long userId = UserContextHolder.getCurrentUserId();
         List<Post> allPosts = this.postRepository.findByUserId(userId);
 
         // Convert all list of post to postDto (Every Post is a separate entity)

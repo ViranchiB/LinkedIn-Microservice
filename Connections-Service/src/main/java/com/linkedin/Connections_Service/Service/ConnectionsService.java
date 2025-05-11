@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ConnectionsService {
     List<Person> getAllFirstDegreeConnections();
-    List<Person> getAllSecondDegreeConnections(Long userId);
-    List<Person> getAllThirdDegreeConnections(Long userId);
+    List<Person> getAllSecondDegreeConnections();
+    List<Person> getAllThirdDegreeConnections();
 }

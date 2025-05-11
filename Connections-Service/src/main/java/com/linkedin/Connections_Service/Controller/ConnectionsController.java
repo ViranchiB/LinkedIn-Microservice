@@ -20,17 +20,17 @@ public class ConnectionsController {
 
     // Here we are fetching the user ID from the token or Context holder and pass it to find the 1st degree connections
     @GetMapping("/first-degree")
-    public ResponseEntity<List<Person>> getFirstConnections(@RequestHeader("X-User-Id") Long userId){
+    public ResponseEntity<List<Person>> getFirstConnections(){
         return new ResponseEntity<>(this.connectionsService.getAllFirstDegreeConnections(), HttpStatus.OK);
     }
 
-    @GetMapping("/{userId}/second-degree")
-    public ResponseEntity<List<Person>> getSecondConnections(@PathVariable Long userId){
-        return new ResponseEntity<>(this.connectionsService.getAllSecondDegreeConnections(userId), HttpStatus.OK);
+    @GetMapping("/second-degree")
+    public ResponseEntity<List<Person>> getSecondConnections(){
+        return new ResponseEntity<>(this.connectionsService.getAllSecondDegreeConnections(), HttpStatus.OK);
     }
 
-    @GetMapping("/{userId}/third-degree")
-    public ResponseEntity<List<Person>> getThirdConnection(@PathVariable Long userId){
-        return new ResponseEntity<>(this.connectionsService.getAllThirdDegreeConnections(userId), HttpStatus.OK);
+    @GetMapping("/third-degree")
+    public ResponseEntity<List<Person>> getThirdConnection(){
+        return new ResponseEntity<>(this.connectionsService.getAllThirdDegreeConnections(), HttpStatus.OK);
     }
 }

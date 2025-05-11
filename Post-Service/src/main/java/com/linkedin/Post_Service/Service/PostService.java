@@ -6,8 +6,8 @@ import com.linkedin.Post_Service.DTO.PostDto;
 import java.util.List;
 
 public interface PostService {
-    PostDto createPost(Long userId, PostCreateRequestDto postCreateRequestDto);
+    PostDto createPost(PostCreateRequestDto postCreateRequestDto);
 
     PostDto getPostById(Long postId);
-    List<PostDto> getAllPostsOfUser(Long userId);
+    List<PostDto> getAllPostsOfUser();
 }
